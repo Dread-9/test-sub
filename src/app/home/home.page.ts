@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../service/api.service';
+import { Cat } from '../models/cat.models';
 
 @Component({
   selector: 'app-home',
@@ -7,7 +9,23 @@ import { Component } from '@angular/core';
   standalone: false,
 })
 export class HomePage {
+  cats!:Cat[];
+  loadig:boolean=false;
 
-  constructor() {}
+  constructor(private api_sservice:ApiService) {}
+
+  ngOnInit(): void {
+    this.getCatImage();
+  }
+
+  getCatImage(){
+    this.loadig=true;
+    this.api_sservice.getApiUrl().subscribe(data=>{
+      console.log(data);
+      this.cats=data;
+      this.loadig=false;
+    });
+  }
+
 
 }

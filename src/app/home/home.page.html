@@ -1,20 +1,23 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" mode="ios">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Test
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <ion-card *ngFor="let item of cats">
+    <ion-card-header>
+      <ion-card-title class="ion-text-center"> {{item.id}} </ion-card-title>
+      <ion-card-subtitle>
+        <p> Ancho: {{item.width}}px </p>
+        <p> Altura: {{item.height}}px </p>
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content class="ion-text-center">
+      <img [src]="item.url" alt="{{item.id}}">
+    </ion-card-content>
+    <ion-button (click)="getCatImage()" expand="block" mode="ios">Cambiar</ion-button>
+  </ion-card>
 </ion-content>
