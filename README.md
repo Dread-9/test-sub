@@ -17,5 +17,5 @@ Antes de comenzar, asegúrate de tener instalado lo siguiente:
 
 1. Clona este repositorio:  
    ```bash
-   git clone [https://github.com/tu-usuario/tu-repositorio.git](https://github.com/Dread-9/test-sub.git)
+   git clone https://github.com/tu-usuario/tu-repositorio.git
    cd test-sub
